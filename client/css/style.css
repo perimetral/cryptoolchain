@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	text-decoration: none;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+html { width: 100%; height: 100%; color: #afa; }
+body { width: 100%; height: 100%; /*background: #222;*/ }
+.tbold { font-weight: bolder; }
+.tunld { text-decoration: underline; }
+.centered { position: absolute; left: 50%; transform: translate(-50%, 0%); }
+.vcentered { position: absolute; top: 50%; transform: translate(0%, -50%); width: 100%; }
+.cyan { color: #0ff; }
+.sgreen { color: #0f0; }
+.dgreen { color: #050; }
+.lgreen { color: #afa; }
+.orange { color: #f80; }
+.ui.button { border-radius: 0; -webkit-user-select: none; }
+.item.last-in-group { margin-bottom: -1px; }
+.app-content { margin-left: 210px; }

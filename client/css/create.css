@@ -1,0 +1,48 @@
+* { overflow: hidden; }
+#targetFilename {
+	border: 2px solid #232;
+	outline: none;
+	padding: 10px;
+	color: #afa;
+	background: #222;
+	width: 340px;
+	position: absolute;
+}
+#targetFilename:hover { border: 2px solid #050; }
+#targetFilename:focus { border: 2px solid #0f0; color: #0f0; }
+.entry {
+	width: 130px;
+	left: 350px;
+	position: relative;
+	border: 2px solid #232;
+}
+.entry[target=targetChoose] { margin: 0; }
+#cryptoolchain {
+	outline: none;
+	list-style: none;
+	width: 620px;
+	position: absolute;
+	top: 80px;
+	width: 480px;
+	height: 190px;
+	overflow-y: scroll;
+	padding: 10px;
+	margin: 0;
+	border: 2px solid #232;
+}
+#cryptoolchain:hover { border: 2px solid #050; }
+#cryptoolchain li {
+	border: 2px solid #222;
+	line-height: 40px;
+	word-wrap: break-word;
+}
+#cryptoolchain li:hover .chainBlock.in { border: 2px solid #f80; word-wrap: break-word; }
+#cryptoolchain li:hover .chainBlock.out { border: 2px solid #0ff; word-wrap: break-word; }
+#cryptoolchain li:hover { color: #0f0; }
+.chainBlock { padding: 10px; }
+.chainBlock.in { border: 2px solid #840; }
+.chainBlock.out { border: 2px solid #088; }
+#cryptoolchain::-webkit-scrollbar { width: 2px; }
+#cryptoolchain::-webkit-scrollbar-track { background: #222; }
+#cryptoolchain::-webkit-scrollbar-thumb { background: #232; }
+#cryptoolchain:hover::-webkit-scrollbar-thumb { background: #0f0; }
