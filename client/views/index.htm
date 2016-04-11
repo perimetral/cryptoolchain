@@ -5,84 +5,198 @@
 		<link rel="stylesheet" href="../css/semantic.min.css">
 		<link rel="stylesheet" href="../css/style.css">
 		<link rel="icon" type="image/png" href="../appicon.png">
-		<title>cryptoolchain</title>
+		<!-- <title>cryptoolchain</title> -->
 	</head>
 	<body>
 		<div class="ui vertical inverted borderless left fixed menu" id="appMenu">
-			<a class="bottom attached green item last-in-group menu-toggler menu-opened"><i class="sidebar icon"></i>TOGGLE MENU</a>
+			<a class="bottom attached green item last-in-group menu-toggler menu-opened"><i class="sidebar grey icon"></i>HIDE MENU</a>
 			<h5 class="ui inverted fitted divider"></h5>
-			<a class="green item last-in-group" data-tab="manage" data-variation="inverted" title="manage your secure data from here">
+			<a class="green item last-in-group" data-tab="manage" data-variation="inverted" data-content="manage your secure data from here">
 				<i class="desktop icon"></i>manage
 			</a>
 			<h5 class="ui inverted fitted divider"></h5>
-			<a class="green item active" data-tab="create" data-variation="inverted" title="customize and generate new secure data container">
+			<a class="green item" data-tab="create" data-variation="inverted" data-content="customize and generate new secure data container">
 				<i class="lock icon"></i>create
 			</a>
-			<a class="green item" data-tab="calibrate" data-variation="inverted" title="open container for tuning it up without mounting">
+			<a class="green item" data-tab="calibrate" data-variation="inverted" data-content="open container for tuning it up without mounting">
 				<i class="configure icon"></i>calibrate
 			</a>
-			<a class="green item last-in-group" data-tab="mount" data-variation="inverted" title="mount container for accessing secure data saved on it">
+			<a class="green item last-in-group" data-tab="mount" data-variation="inverted" data-content="mount container for accessing secure data saved on it">
 				<i class="unlock icon"></i>mount
 			</a>
 			<h5 class="ui inverted fitted divider"></h5>
-			<a class="green item" data-tab="preferences" data-variation="inverted" title="configure the whole app, profiles and advanced features">
+			<a class="green item active" data-tab="preferences" data-variation="inverted" data-content="configure the whole app, profiles or advanced features">
 				<i class="cogs icon"></i>preferences
 			</a>
-			<a class="green item" data-tab="manual" data-variation="inverted" title="read the documentation">
+			<a class="green item" data-tab="manual" data-variation="inverted" data-content="read documentation">
 				<i class="student icon"></i>manual
 			</a>
-			<a class="green item last-in-group" data-tab="about" data-variation="inverted" title="wanna to learn more about author?">
+			<a class="green item last-in-group" data-tab="about" data-variation="inverted" data-content="wanna to learn more about author?">
 				<i class="info icon"></i>about
 			</a>
 			<h5 class="ui inverted fitted divider"></h5>
-			<a class="orange item" data-tab="paranoia" data-variation="inverted orange" title="emit the paranoia scenario (USE IT WITH CARE!)">
+			<a class="orange item" data-tab="paranoia" data-variation="inverted orange" data-content="emit paranoia scenario (USE IT WITH CARE!)">
 				<i class="protect icon"></i>paranoia
 			</a>
-			<a class="red item" data-tab="panic" data-variation="inverted" title="emit the panic scenario (USE IT WITH DOUBLE CARE!)">
+			<a class="red item" data-tab="panic" data-variation="inverted" data-content="emit panic scenario (USE IT WITH DOUBLE CARE!)">
 				<i class="plane icon"></i>panic
 			</a>
-			<a class="green item exit-toggler" data-variation="inverted" title="unmount all mounted containers and quit">
+			<a class="green item exit-toggler" data-variation="inverted" data-content="unmount all mounted containers and quit">
 				<i class="sign out icon"></i>exit
 			</a>
 		</div>
 		<div class="ui tab app-content" data-tab="manage">
-			manage the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
-		<div class="ui active tab app-content" data-tab="create">
-			<div class="ui equal width padded grid">
-				<div class="ui inverted green row">
-					<div class="ui green column">
-						testr
-					</div>
-					<div class="four wide column">
-						ewwwew
+		<div class="ui tab app-content" data-tab="create">
+			<form class="ui form inverted segment">
+				<div class="field">
+					<div class="ui input">
+						<input placeholder="... filename" name="filename" type="text" class="buttoned" data-variation="inverted" data-content="enter filename for new container or choose existing file using button">
+						<button class="ui inverted green button" data-behavior="filechoose" data-reason="create" data-variation="inverted" data-content="specify existing path for saving new container">
+							<i class="open folder icon"></i> browse
+						</button>
 					</div>
 				</div>
-			</div>
+				<div class="two fields">
+					<div class="field">
+						<div class="ui input" data-variation="inverted" data-content="enter size of container, appending K, M (default) or G to specify size units">
+							<input placeholder="... container size" name="csize" type="text">
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui input" data-variation="inverted" data-content="enter size of data blocks in container, appending K (default), M or G to specify size units">
+							<input placeholder="... block size" name="bsize" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="two fields">
+					<div class="field">
+						<input class="cbox" name="autoRaiseSize" type="checkbox" checked>
+						<clabel data-cbname="autoRaiseSize" data-variation="inverted" data-content="try to automatically increase container size in case of free space wantage">raise size automatically</clabel>
+					</div>
+					<div class="field">
+						<div class="ui input" data-depends="autoRaiseSize" data-variation="inverted" data-content="enter size raising upper limitation, appending K, M (default) or G to specify size units or leave this input empty for unlimited raising">
+							<input placeholder="... raising limitation" name="raiselimit" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="two fields">
+					<div class="field">
+						<input class="cbox" name="accessLogsInContainer" type="checkbox" checked>
+						<clabel data-cbname="accessLogsInContainer" data-variation="inverted" data-content="whether to save container access logs along with data or not (this preference has no effect on global app settings)">save logs along with data</clabel>
+					</div>
+					<div class="field">
+						<button class="ui inverted green fluid button" data-depends="accessLogsInContainer" data-variation="inverted" data-content="manage container access logging configuration">
+							<i class="configure icon"></i>
+							logging configuration
+						</button>
+					</div>
+				</div>
+				<div class="two fields">
+					<div class="field">
+						<input class="cbox" name="otfCompress" type="checkbox">
+						<clabel data-cbname="otfCompress" data-variation="inverted" data-content="whether to enable on-the-fly data compressing for container or not">otf data compressing</clabel>
+					</div>
+					<div class="field">
+						<button class="ui inverted green fluid disabled button" data-depends="otfCompress" data-variation="inverted" data-content="manage on-the-fly data compressing configuration">
+							<i class="configure icon"></i>
+							compressing configuration
+						</button>
+					</div>
+				</div>
+				<hr class="formend">
+			</form>
 		</div>
 		<div class="ui tab app-content" data-tab="calibrate">
-			calibrate the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui tab app-content" data-tab="mount">
-			mount the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
-		<div class="ui tab app-content" data-tab="preferences">
-			preferences the fuck container
+		<div class="ui active tab app-content" data-tab="preferences">
+			<form class="ui form inverted segment">
+				<div class="two fields">
+					<div class="field">
+						<button class="ui inverted green fluid disabled button" data-variation="inverted" data-content="set all preferences to it default states discarding current values">
+							<i class="history icon"></i>
+							set all to default
+						</button>
+					</div>
+					<div class="field">
+						<button class="ui inverted green fluid button" data-variation="inverted" data-content="discard any changes of preferences and return to previous configuration">
+							<i class="exchange icon"></i>
+							import/export preferences
+						</button>
+					</div>
+				</div>
+				<div class="two fields">
+					<div class="field">
+						<input class="cbox" name="tabSwitchChangesTitle" type="checkbox" checked>
+						<clabel data-cbname="tabSwitchChangesTitle" data-variation="inverted" data-content="whether to change window title on tab switching or not">tab name in title</clabel>
+					</div>
+					<div class="field">
+						<input class="cbox" name="showTooltips" type="checkbox" checked>
+						<clabel data-cbname="showTooltips" data-variation="inverted" data-content="whether to show tooltips on mouse hover over cryptoolchain ui elements or not">show tooltips</clabel>
+					</div>
+				</div>
+				<hr class="aftercbox">
+				<div class="two fields">
+					<div class="field">
+						<input class="cbox" name="hideMenuOnInit" type="checkbox">
+						<clabel data-cbname="hideMenuOnInit" data-variation="inverted" data-content="whether to start with hidden menu text labels or visible ones">start with hidden menu</clabel>
+					</div>
+					<div class="field">
+						<input class="cbox" name="exitConfirmation" type="checkbox" checked>
+						<clabel data-cbname="exitConfirmation" data-variation="inverted" data-content="whether to ask for user confirmation of closing cryptoolchain or not">confirm exit</clabel>
+					</div>
+				</div>
+				<hr class="aftercbox">
+				<div class="two fields">
+					<div class="field">
+						<button class="ui inverted green fluid button" data-variation="inverted" data-content="configure preferences protection">
+							<i class="configure icon"></i>
+							preferences protection
+						</button>
+					</div>
+					<div class="field">
+						<button class="ui inverted green fluid button" data-variation="inverted" data-content="configure cryptoolchain boot protection">
+							<i class="configure icon"></i>
+							launch protection
+						</button>
+					</div>
+				</div>
+				<div class="two fields">
+					<div class="field">
+						<button class="ui inverted green fluid disabled button" data-variation="inverted" data-content="apply updates preferences immediately">
+							<i class="checkmark icon"></i>
+							apply changes
+						</button>
+					</div>
+					<div class="field">
+						<button class="ui inverted red fluid disabled button" data-variation="inverted" data-content="discard any changes of preferences and return to previous configuration">
+							<i class="reply icon"></i>
+							discard changes
+						</button>
+					</div>
+				</div>
+				<hr class="formend">
+			</form>
 		</div>
 		<div class="ui tab app-content" data-tab="manual">
-			manual the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui tab app-content" data-tab="about">
-			about the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui tab app-content" data-tab="paranoia">
-			paranoia the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui tab app-content" data-tab="panic">
-			panic the fuck container
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui tab app-content" data-tab="exit">
-			are you sure?
+			<div class="ui inverted segment"></div>
 		</div>
 		<div class="ui basic modal exit-modal">
 			<h2 class="ui icon header">

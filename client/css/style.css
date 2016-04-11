@@ -8,9 +8,11 @@
 	text-decoration: none;
 	font-size: 14px;
 	box-sizing: border-box;
+	border-radius: 0 !important;
+	transition: all .2s;
 }
 html { width: 100%; height: 100%; color: #afa; }
-body { width: 100%; height: 100%; /*background: #222;*/ }
+body { width: 100%; height: 100%; background: #191919; }
 .tbold { font-weight: bolder; }
 .tunld { text-decoration: underline; }
 .centered { position: absolute; left: 50%; transform: translate(-50%, 0%); }
@@ -20,6 +22,58 @@ body { width: 100%; height: 100%; /*background: #222;*/ }
 .dgreen { color: #050; }
 .lgreen { color: #afa; }
 .orange { color: #f80; }
-.ui.button { border-radius: 0; -webkit-user-select: none; }
-.item.last-in-group { margin-bottom: -1px; }
 .app-content { margin-left: 210px; }
+.left.fixed.menu { border-right: 1px solid #333; }
+.left.fixed.menu .item.last-in-group { margin-bottom: -1px; }
+input[type="text"].buttoned { margin-right: 15px !important; }
+button { margin-right: 0px !important; height: 40px; }
+.ui.popup { border: 2px solid #0b5d22 !important; }
+.ui.popup:before { width: 0; height: 0; }
+hr.aftercbox { border: 11px solid rgba(255, 255, 255, 0); }
+hr.formend { border: none; border-bottom: 2px solid rgba(255, 255, 255, 0); }
+.ui.tab.app-content, .ui.form.inverted.segment { height: 100% !important; }
+
+.cbox {
+	vertical-align: middle;
+	margin: 0 3px 0 0;
+	width: 14px;
+	height: 14px;
+}
+.cbox + clabel {
+	cursor: pointer;
+	vertical-align: middle;
+	top: 12px;
+}
+.cbox:not(checked) { position: absolute; opacity: 0; }
+.cbox:not(checked) + clabel {
+	position: relative;
+	padding-left: 50px;
+}
+.cbox:not(checked) + clabel:before {
+	content: '';
+	position: absolute;
+	top: -12px;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 0;
+	border: 2px solid #21ba45;
+	background: none;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	transition: all .2s;
+}
+.cbox:not(checked) + clabel:after {
+	content: '';
+	position: absolute;
+	top: -8px;
+	left: 4px;
+	width: 32px;
+	height: 32px;
+	border-radius: 0;
+	background: none;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+	transition: all .2s;
+}
+.cbox:checked + clabel:after { background: #21ba45; }
+.cbox:focus + clabel:before { box-shadow: 0 0 0 3px rgba(255, 255, 0, .5); }
+clabel { -webkit-user-select: none; }
