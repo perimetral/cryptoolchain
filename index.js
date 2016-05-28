@@ -6,8 +6,11 @@ try {
 global._ = {};
 global._c = _c;
 global._e = _._e = _e;
+global._t = require('./lib/tools');
 global._clone =  (src) => { return JSON.parse(JSON.stringify(src)); };
 global._cfg = require('./configuration');
+global._rs = (length) => { return (Math.random() * 10 * length).toString(); };
+global._dummy = (x) => { return x; };
 
 _.electron = require('electron');
 _.app = _.electron.app;
@@ -15,12 +18,22 @@ _.BrowserWindow = _.electron.BrowserWindow;
 _.dialog = _.electron.dialog;
 _.path = require('path');
 _.fs = require('fs');
-const ipc = _.electron.ipcMain;
-const prefs = require('./lib/prefs');
+_.os = require('os');
+_.crypto = require('crypto');
+_.stream = require('stream');
+global._rb = (size) => {
+	return new Promise((go, stop) => {
+		_.crypto.randomBytes(size, (e, result) => { if (e) return stop(e); return go(result); });
+	});
+};
 
+_.fsp = require('./lib/fsp');
+_.cengine = require('./lib/cengine');
 _.weedb = require('./lib/weedb');
 _.timerc = require('./lib/timerscope');
 _.router = require('./lib/router');
+
+const ipc = _.electron.ipcMain;
 
 const makeWindowOptions = (options) => {
 	options = options || {};
